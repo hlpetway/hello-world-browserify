@@ -1,0 +1,21 @@
+{
+  "name": "hello_World_Express",
+  "version": "0.0.0",
+  "authors": [
+    "Hailey Petway <petwayh@gmail.com>"
+  ],
+  "description": "a demo of express and browserify and friends",
+  "keywords": [
+    "browserify",
+    "express"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
