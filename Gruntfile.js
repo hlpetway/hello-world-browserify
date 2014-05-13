@@ -71,11 +71,25 @@ module.exports = function(grunt) {
                 files: ['assets/**/*', '*.css', 'images/**/*', 'img/**/*', '!Gruntfile.js'],
                 tasks: ['copy'],
             }
+        },
+        simplemocha: {
+            options: {
+                globals: ['should'],
+                timeout: 3000,
+                ignoreLeaks: false,
+                grep: '*-test',
+                ui: 'bdd',
+                reporter: 'tap'
+            },
+
+            all: {
+                src: ['test/unit/**/*.js']
+            }
         }
     });
 
-    grunt.registerTask('default', ['jshint', 'clean', 'browserify', 'copy']);
+    grunt.registerTask('default', ['jshint', 'clean', 'browserify', 'copy', 'simplemocha']);
     grunt.registerTask('server', ['default', 'connect', 'watch']);
-    grunt.registerTask('test', ['express:dev', 'casper']);
+    grunt.registerTask('test', ['simplemocha']);
     grunt.registerTask('build', ['clean', 'copy', 'browserify']);
 };
